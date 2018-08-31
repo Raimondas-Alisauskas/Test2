@@ -8,12 +8,13 @@ import _60_proposal.ProposalTime;
 
 public class ProposalFiller {
 
-//    public Proposal fillProposal(Proposal proposal, Request request, Producer producer) {
-//        proposal.setRequestId(request.getRequestId());
-//        proposal.setProducerId(producerTime.getProducerId());
-//        proposal.setAvailableStart(producerTime.getAvailableStart());
-//        proposal.setAvailableFinish(producerTime.getAvailableFinish());
-//        return proposal;
-//    }
+    public Proposal fillProposal(Proposal proposal, Request request, Producer producer) {
+        proposal.setRequestId(request.getRequestId());
+        proposal.setProducerId(producer.getProducerId());
+        proposal.getProposalTime().setAvailableStart(producer.getProducerTime().getAvailableStart());
+        proposal.getProposalTime().setAvailableFinish(producer.getProducerTime().getAvailableFinish());
+        return proposal;
+
+    }
 
 }

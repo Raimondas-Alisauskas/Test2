@@ -5,6 +5,7 @@ import _10_model.data.RequestsDBFactory;
 import _10_model.input.RequestInput;
 import _30_producer.Producer;
 import _50_request.Request;
+import _60_proposal.Proposal;
 import _60_proposal.ProposalTime;
 import _70_answer.Answer;
 import _80_utils.ProposalTimeEvaluator;
@@ -52,7 +53,7 @@ public class App {
 
         //Get timeFitProducers list which meets Request's time requirements
         ProposalTimeEvaluator proposalTimeEvaluator = new ProposalTimeEvaluator();
-        List<ProposalTime> timeFitProducers = proposalTimeEvaluator.getTimeFitProducers(request, producersData);
+        List<Proposal> timeFitProducers = proposalTimeEvaluator.getTimeFitProducers(request, producersData);
 
 //        Put timeFitProducers to Answer todo Stage1.1
 //        answersData.getData().add(answer);

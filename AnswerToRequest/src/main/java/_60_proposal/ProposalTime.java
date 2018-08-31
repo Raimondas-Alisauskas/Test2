@@ -10,6 +10,8 @@ public class ProposalTime {
     private LocalDateTime availableFinish;
     private LocalDateTime earlyFinish;
 
+    public ProposalTime() {
+    }
 
     public ProposalTime(LocalDateTime availableStart, LocalDateTime availableFinish, LocalDateTime earlyFinish) {
         this.availableStart = availableStart;

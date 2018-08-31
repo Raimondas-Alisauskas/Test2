@@ -12,10 +12,11 @@ public class Proposal {
     private ProposalTime proposalTime;
 
     //empty Proposal
-
-
     public Proposal() {
         this.proposalId =  new IdGenerator().generateIdKey("Pr ");
+        this.proposalScope = new ProposalScope();
+        this.proposalTime = new ProposalTime();
+
     }
 
 //    public Proposal(String requestId, String producerId, ProposalScope proposalScope, ProposalTime proposalTime) {
@@ -26,4 +27,43 @@ public class Proposal {
 //        this.proposalTime = proposalTime;
 //    }
 
+    public String getProposalId() {
+        return proposalId;
+    }
+
+    public void setProposalId(String proposalId) {
+        this.proposalId = proposalId;
+    }
+
+    public String getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(String requestId) {
+        this.requestId = requestId;
+    }
+
+    public String getProducerId() {
+        return producerId;
+    }
+
+    public void setProducerId(String producerId) {
+        this.producerId = producerId;
+    }
+
+    public ProposalScope getProposalScope() {
+        return proposalScope;
+    }
+
+    public void setProposalScope(ProposalScope proposalScope) {
+        this.proposalScope = proposalScope;
+    }
+
+    public ProposalTime getProposalTime() {
+        return proposalTime;
+    }
+
+    public void setProposalTime(ProposalTime proposalTime) {
+        this.proposalTime = proposalTime;
+    }
 }

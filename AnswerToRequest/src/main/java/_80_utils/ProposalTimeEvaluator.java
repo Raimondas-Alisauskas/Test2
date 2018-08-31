@@ -17,54 +17,53 @@ import java.util.List;
 public class ProposalTimeEvaluator {
 
 
-    public List<ProposalTime> getTimeFitProducers(Request request, DASData<Producer> producersData) {
+    public List<Proposal> getTimeFitProducers(Request request, DASData<Producer> producersData) {
 
         ProductionDurationCalculator productionDurationCalculator = new ProductionDurationCalculator();
         ProducerAvailabilityCalculator producerAvailabilityCalculator = new ProducerAvailabilityCalculator();
         EarlyFinishDateCalculator earlyFinishDateCalculator = new EarlyFinishDateCalculator();
         ProposalFiller proposalFiller = new ProposalFiller();
-        List<ProposalTime> timeFitProducers = new ArrayList();
+        List<Proposal> timeFitProducers = new ArrayList();
 
 
         for (int i = 0; i < producersData.getData().size(); i++) {
 
-            Producer producer = new Producer(i, producersData);
-
 //            ProducerScope producerScope = new ProducerScope(i, producersData);
 //            ProducerTime producerTime = new ProducerTime(i, producersData);
 
-            /**
-             Producer producer = new Producer(i, producersData);
 
-             // calculate productionDuration
-             Duration productionDuration = productionDurationCalculator.calcProductionDuration(request, producer);
+            Producer producer = new Producer(i, producersData);
 
-             // calculate availability
-             boolean producerAvailable = producerAvailabilityCalculator.calculateProducerAvailability(producer, productionDuration);
+            // calculate productionDuration
+            Duration productionDuration = productionDurationCalculator.calcProductionDuration(request, producer);
 
-             if (producerAvailable) {
+            // calculate availability
+            boolean producerAvailable = producerAvailabilityCalculator.calculateProducerAvailability(producer, productionDuration);
 
-             //calculate earlyFinishDate date of ProposalTime
-             LocalDateTime earlyFinishDate = earlyFinishDateCalculator.calculateEarlyFinish(producer, productionDuration);
+            if (producerAvailable) {
 
-             //check Request's deadline
-             LocalDateTime deadline = request.getRequestTime().getDeadline();
-             boolean productionIsOnTime = earlyFinishDate.isBefore(deadline);
+                //calculate earlyFinishDate date of ProposalTime
+                LocalDateTime earlyFinishDate = earlyFinishDateCalculator.calculateEarlyFinish(producer, productionDuration);
 
-             if (productionIsOnTime) {
+                //check Request's deadline
+                LocalDateTime deadline = request.getRequestTime().getDeadline();
+                boolean productionIsOnTime = earlyFinishDate.isBefore(deadline);
 
-             //create empty Proposal
-             Proposal proposal = new Proposal();
+                if (productionIsOnTime) {
 
-             //fill ProposalTime
-             proposal.setEarlyFinishDate(earlyFinishDate);
-             proposal = proposalFiller.fillProposal(proposal, request, producer);
 
-             //put ProposalTime to proposalsList
-             timeFitProducers.add(proposal);
-             }
+                    //create empty Proposal
+                    Proposal proposal = new Proposal();
 
-             }*/
+                    //fill ProposalTime
+                    proposal.getProposalTime().setEarlyFinish(earlyFinishDate);
+                    proposal = proposalFiller.fillProposal(proposal, request, producer);
+
+                    //put ProposalTime to timeFitProducers list
+                    timeFitProducers.add(proposal);
+                }
+
+            }
         }
         return timeFitProducers;
     }

@@ -27,10 +27,10 @@ public class TestDataPopulator {
                 (new ProducerScope("300", "50", "50", "2"),
                         new ProducerTime("2", "2018-09-01", "2018-10-15", "24")));
         producersDASData.getData().add(new Producer
-                (new ProducerScope("50", "50", "50", "2"),
+                (new ProducerScope("50", "50", "50", "1"),
                         new ProducerTime("2", "2018-10-01", "2018-11-15", "24")));
         producersDASData.getData().add(new Producer
-                (new ProducerScope("100", "50", "50", "2"),
+                (new ProducerScope("100", "50", "50", "1"),
                         new ProducerTime("2", "2018-09-01", "2018-09-15", "24")));
 
 
