@@ -2,43 +2,67 @@ package _30_producer;
 
 import _10_model.data.DASData;
 
-public class ProducerTime implements Producer{
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
-//    private String producerId;
+public class ProducerTime {
 
-    //calculations
+    private Duration programmingTimeH;
+    private LocalDateTime availableStart;
+    private LocalDateTime availableFinish;
 
+    private Duration deliveringTimeH;
+
+    //for calculations
     public ProducerTime(int i, DASData<ProducerTime> producersData) {
-//        super (i, producersData);
-//        this.producerId = producersData.getData().get(i).getProducerId();
-      }
-
-    @Override
-    public String getProducerId() {
-        return null;
+//        super();
+        this.availableStart = producersData.getData().get(i).getAvailableStart();
+        this.availableFinish = producersData.getData().get(i).getAvailableFinish();
+        this.deliveringTimeH = producersData.getData().get(i).getDeliveringTimeH();
     }
 
-    @Override
-    public void setProducerId(String producerId) {
-
+    //for manual data input
+    public ProducerTime(String programmingTimeH, String availableStart, String availableFinish, String processingSpeedCM3pH, String deliveringTimeH) {
+        this.programmingTimeH = Duration.ofHours(Long.parseLong(programmingTimeH));
+        this.availableStart = LocalDateTime.of(LocalDate.parse(availableStart), LocalTime.MIDNIGHT);
+        this.availableFinish = LocalDateTime.of(LocalDate.parse(availableFinish), LocalTime.MIDNIGHT);
+        this.deliveringTimeH = Duration.ofHours(Long.parseLong(deliveringTimeH));
     }
 
-//    public ProducerTime() {
-//
-//    }
 
-    // manual input
-//    public ProducerTime(String producerId, String programingTimeH, String availableStart, String availableFinish, String processingSpeedCM3pH, String deliveringTimeH) {
-//        super(programingTimeH, availableStart, availableFinish, processingSpeedCM3pH, deliveringTimeH);
-//        this.producerId = producerId;
-//     }
+    public Duration getProgrammingTimeH() {
+        return programmingTimeH;
+    }
 
+    public void setProgrammingTimeH(Duration programmingTimeH) {
+        this.programmingTimeH = programmingTimeH;
+    }
 
+    public LocalDateTime getAvailableStart() {
+        return availableStart;
+    }
 
+    public void setAvailableStart(LocalDateTime availableStart) {
+        this.availableStart = availableStart;
+    }
 
-//    public String getProducerId() {
-//        return producerId;
-//    }
+    public LocalDateTime getAvailableFinish() {
+        return availableFinish;
+    }
+
+    public void setAvailableFinish(LocalDateTime availableFinish) {
+        this.availableFinish = availableFinish;
+    }
+
+    public Duration getDeliveringTimeH() {
+        return deliveringTimeH;
+    }
+
+    public void setDeliveringTimeH(Duration deliveringTimeH) {
+        this.deliveringTimeH = deliveringTimeH;
+    }
 }
 
 // TODO: 18.8.18 Stage2

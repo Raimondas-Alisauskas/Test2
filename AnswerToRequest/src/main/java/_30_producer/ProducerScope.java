@@ -1,23 +1,60 @@
 package _30_producer;
 
-import _80_utils.IdGenerator;
+import _10_model.data.DASData;
 
-public class ProducerScope implements Producer{
+public class ProducerScope {
 
 
-    //id
-    private String producerId = new IdGenerator().generateIdKey("Pr ");
+    private long maxHeight;
+    private long maxLength;
+    private long maxWidth;
+    private long processingSpeedCM3pH;
 
-    public String getProducerId() {
-        return producerId;
+    //for calculations
+    public ProducerScope(int i, DASData<ProducerScope> producersData) {
+        this.maxHeight = producersData.getData().get(i).getMaxHeight();
+        this.maxLength = producersData.getData().get(i).getMaxLength();
+        this.maxWidth = producersData.getData().get(i).getMaxWidth();
+        this.processingSpeedCM3pH = producersData.getData().get(i).getProcessingSpeedCM3pH();
     }
 
-    public void setProducerId(String producerId) {
-        this.producerId = producerId;
+    //for manual data input
+    public ProducerScope(String maxHeight, String maxLength, String maxWidth, String processingSpeedCM3pH) {
+        this.maxHeight = Long.valueOf(maxHeight);
+        this.maxLength = Long.valueOf(maxLength);
+        this.maxWidth = Long.valueOf(maxWidth);
+        this.processingSpeedCM3pH = Long.valueOf(processingSpeedCM3pH);
     }
 
+    public long getMaxHeight() {
+        return maxHeight;
+    }
 
+    public void setMaxHeight(long maxHeight) {
+        this.maxHeight = maxHeight;
+    }
 
+    public long getMaxLength() {
+        return maxLength;
+    }
 
+    public void setMaxLength(long maxLength) {
+        this.maxLength = maxLength;
+    }
 
+    public long getMaxWidth() {
+        return maxWidth;
+    }
+
+    public void setMaxWidth(long maxWidth) {
+        this.maxWidth = maxWidth;
+    }
+
+    public long getProcessingSpeedCM3pH() {
+        return processingSpeedCM3pH;
+    }
+
+    public void setProcessingSpeedCM3pH(long processingSpeedCM3pH) {
+        this.processingSpeedCM3pH = processingSpeedCM3pH;
+    }
 }

@@ -3,7 +3,6 @@ import _10_model.data.*;
 import _30_producer.ProducerTime;
 import _50_request.Request;
 import _60_proposal.ProposalTime;
-import main.java.App;
 
 public class TestRun {
 
@@ -17,7 +16,7 @@ public class TestRun {
         test.java.TestDataPopulator testDataPopulator = new test.java.TestDataPopulator();
 //        testDataPopulator.putProducerData(testDataPopulator.producersData);
 
-        App app = new main.java.App(requestData, producersData, proposalsData, answersData);
+        App app = new App(requestData, producersData, proposalsData, answersData);
         app.runApp();
 
 

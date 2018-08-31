@@ -1,14 +1,14 @@
 package _10_model.data;
 
-import _60_proposal.ProposalTime;
+import _60_proposal.Proposal;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProposalsStaticDASData implements DASData<ProposalTime> {
+public class ProposalsStaticDASData implements DASData<Proposal> {
 
  //   private String requestId;
-    private List<ProposalTime> proposalTimes = new ArrayList<>();
+    private List<Proposal> Proposals = new ArrayList<>();
 
     /**
      * Use ProducersDBFactory
@@ -17,8 +17,8 @@ public class ProposalsStaticDASData implements DASData<ProposalTime> {
     }
 
     @Override
-    public List<ProposalTime> getData() {
-        return proposalTimes;
+    public List<Proposal> getData() {
+        return Proposals;
     }
 
 }

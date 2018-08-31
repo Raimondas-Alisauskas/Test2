@@ -1,12 +1,12 @@
-package main.java;
-
+import _10_model.data.AnswersDBFactory;
 import _10_model.data.DASData;
 import _10_model.data.ProducersDBFactory;
 import _10_model.data.RequestsDBFactory;
 import _10_model.input.RequestInput;
-import _30_producer.ProducerTime;
+import _30_producer.Producer;
 import _50_request.Request;
 import _60_proposal.ProposalTime;
+import _70_answer.Answer;
 import _80_utils.ProposalTimeEvaluator;
 import _80_utils.RequestFiller;
 
@@ -15,17 +15,15 @@ import java.util.List;
 public class App {
 
     DASData<Request> requestsData;
-    DASData<ProducerTime> producersData;
-//    DASData<ProposalTime> proposalsForAnswer;//todo Stage1.1 make DASData<Answer>
-//    DASData<DASData<ProposalTime>> answersData;todo Stage1.1 remove
+    DASData<Producer> producersData;
+    DASData<Answer> answersData;
 
     //for tests
-    public App(DASData<Request> requestsData, DASData<ProducerTime> producersData,
-               DASData<ProposalTime> proposalsForAnswer, DASData<DASData<ProposalTime>> answersData) {
+    public App(DASData<Request> requestsData, DASData<Producer> producersData, DASData<Answer> answersData) {
 
         this.requestsData = requestsData;
         this.producersData = producersData;
-//        this.answersData = answersData; todo Stage1.1
+        this.answersData = answersData;
     }
 
     // for general run
@@ -33,12 +31,12 @@ public class App {
 
         requestsData = RequestsDBFactory.getDASInstance();
         producersData = ProducersDBFactory.getDbInstance();
-//        answersData = AnswersDBFactory.getDbInstance(); todo Stage1.1
+        answersData = AnswersDBFactory.getDbInstance();
     }
 
     public void runApp() {
 
-//        Receiving Request for production: Create mock RequestInput
+//        Receiving Request for production: Create RequestInput
         RequestInput requestInput = new RequestInput();
 
 //        Create empty Request
@@ -46,7 +44,7 @@ public class App {
 
         //fill the Request
         RequestFiller requestFiller = new RequestFiller();
-        request =requestFiller.fillRequest(requestInput, request);
+        request = requestFiller.fillRequest(requestInput, request);
 
 //        Put the Request in to requestsData
         requestsData.getData().add(request);
@@ -66,7 +64,7 @@ public class App {
         //tests todo Stage1.0
 
 
-        for (int i = 0; i < timeFitProducers.size(); i++){
+        for (int i = 0; i < timeFitProducers.size(); i++) {
             System.out.println("Time fit producer name :" + timeFitProducers.get(i).getProducerId());
         }
 
@@ -77,7 +75,7 @@ public class App {
 //       check Producers for max dimmensions
 //       Sort ProposalsStaticDASData acording to earlyFinish
 //        If Client is new, create new Client id, put in to ClientDatabase
-//        Create OutputToClient put ProducerTime name, availale time, earlyFinish
+//        Create OutputToClient put Producer name, availale time, earlyFinish
 //Give id to Answer
 //       todo Stage3:
 //        Receive ProducerInput
@@ -85,4 +83,4 @@ public class App {
 //        Create ProducerId
 //        Put to ProducersStaticDASData
 //
-//        Active/NotActive ProducerTime, ProposalsStaticDASData
+//        Active/NotActive Producer, ProposalsStaticDASData

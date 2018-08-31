@@ -1,14 +1,14 @@
 package _10_model.data;
 
-import _30_producer.ProducerTime;
+import _30_producer.Producer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProducersStaticDASData implements DASData<ProducerTime> {
+public class ProducersStaticDASData implements DASData<Producer> {
 
 
-    private  List<ProducerTime>  producersList = new ArrayList<>();
+    private  List<Producer>  producersList = new ArrayList<>();
 
     /**
      * Use ProducersDBFactory
@@ -18,7 +18,7 @@ public class ProducersStaticDASData implements DASData<ProducerTime> {
 
 
     @Override
-    public List<ProducerTime> getData() {
+    public List<Producer> getData() {
         return producersList;
     }
 }

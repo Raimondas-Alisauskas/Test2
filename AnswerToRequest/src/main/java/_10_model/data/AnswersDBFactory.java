@@ -1,10 +1,12 @@
 package _10_model.data;
 
+import _70_answer.Answer;
+
 public class AnswersDBFactory {
 
-    private static DASData dbInstance = null;
+    private static DASData<Answer> dbInstance = null;
 
-    public static DASData getDbInstance(){
+    public static DASData<Answer> getDbInstance(){
 
 
         if (dbInstance == null) {
@@ -13,7 +15,7 @@ public class AnswersDBFactory {
         return dbInstance;
     }
 
-    private static DASData creteDbInstance(){
+    private static DASData<Answer> creteDbInstance(){
         //config mode
         int mode = 0;//For static data mode
 

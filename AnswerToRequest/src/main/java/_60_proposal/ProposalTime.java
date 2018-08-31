@@ -4,54 +4,47 @@ import _80_utils.IdGenerator;
 
 import java.time.LocalDateTime;
 
-public class ProposalTime extends Proposal {
+public class ProposalTime {
 
-    //id
-    private String proposalId;
-    private String requestId;
-    private String producerId;
+    private LocalDateTime availableStart;
+    private LocalDateTime availableFinish;
+    private LocalDateTime earlyFinish;
 
-    public ProposalTime() {
-        this.proposalId = new IdGenerator().generateIdKey("Pr ");
-    }
 
-    //for manual input
-    public ProposalTime(String requestId, String producerId,
-                        LocalDateTime availableStart, LocalDateTime availableFinish, LocalDateTime earlyFinish) {
-        super(availableStart, availableFinish, earlyFinish);
-        this.proposalId = new IdGenerator().generateIdKey("Pr ");
-        this.requestId = requestId;
-        this.producerId = producerId;
-
+    public ProposalTime(LocalDateTime availableStart, LocalDateTime availableFinish, LocalDateTime earlyFinish) {
+        this.availableStart = availableStart;
+        this.availableFinish = availableFinish;
+        this.earlyFinish = earlyFinish;
     }
 
     //getset
-
-    public String getProposalId() {
-        return proposalId;
+    public LocalDateTime getAvailableStart() {
+        return availableStart;
     }
 
-    public void setProposalId(String proposalId) {
-        this.proposalId = proposalId;
+    public void setAvailableStart(LocalDateTime availableStart) {
+        this.availableStart = availableStart;
     }
 
-    public String getRequestId() {
-        return requestId;
+    public LocalDateTime getAvailableFinish() {
+        return availableFinish;
     }
 
-    public void setRequestId(String requestId) {
-        this.requestId = requestId;
+    public void setAvailableFinish(LocalDateTime availableFinish) {
+        this.availableFinish = availableFinish;
     }
 
-    public String getProducerId() {
-        return producerId;
+    public LocalDateTime getEarlyFinish() {
+        return earlyFinish;
     }
 
-    public void setProducerId(String producerId) {
-        this.producerId = producerId;
+    public void setEarlyFinish(LocalDateTime earlyFinish) {
+        this.earlyFinish = earlyFinish;
     }
 }
-// TODO: 18.8.18 Stage2
+// TODO: Stage2
+
+// list of dates for availableTime;
 ////price
 //private double proposalPrice;
 //

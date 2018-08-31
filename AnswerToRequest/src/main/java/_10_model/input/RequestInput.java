@@ -4,7 +4,8 @@ public class RequestInput {
 
     //id
     private String clientName;
-    private String maxDimensionMM;
+    private String maxFootprintDimensionMM;
+    private String maxHeightMM;
     private String volumeCM3;
     //time
     private String deadline;
@@ -12,7 +13,8 @@ public class RequestInput {
 
     public RequestInput() {
         clientName = "ClName";
-        maxDimensionMM = "100";
+        maxFootprintDimensionMM = "100";
+        maxHeightMM = "200";
         volumeCM3 = "100";
         deadline = "2018-09-15";
     }
@@ -22,18 +24,41 @@ public class RequestInput {
         return clientName;
     }
 
-    public String getMaxDimensionMM() {
-        return maxDimensionMM;
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
+    }
+
+    public String getMaxFootprintDimensionMM() {
+        return maxFootprintDimensionMM;
+    }
+
+    public void setMaxFootprintDimensionMM(String maxFootprintDimensionMM) {
+        this.maxFootprintDimensionMM = maxFootprintDimensionMM;
+    }
+
+    public String getMaxHeightMM() {
+        return maxHeightMM;
+    }
+
+    public void setMaxHeightMM(String maxHeightMM) {
+        this.maxHeightMM = maxHeightMM;
     }
 
     public String getVolumeCM3() {
         return volumeCM3;
     }
 
+    public void setVolumeCM3(String volumeCM3) {
+        this.volumeCM3 = volumeCM3;
+    }
+
     public String getDeadline() {
         return deadline;
     }
 
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
+    }
 }
 
 // TODO: 18.8.18 Stage 2

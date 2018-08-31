@@ -1,12 +1,12 @@
 package _10_model.data;
 
-import _60_proposal.ProposalTime;
+import _60_proposal.Proposal;
 
 public class ProposalsDBFactory  {
 
-    private static DASData<ProposalTime> dbInstance = null;
+    private static DASData<Proposal> dbInstance = null;
 
-    public static DASData<ProposalTime> getDbInstance(){
+    public static DASData<Proposal> getDbInstance(){
 
 
         if (dbInstance == null) {
@@ -15,7 +15,7 @@ public class ProposalsDBFactory  {
         return dbInstance;
     }
 
-    private static DASData<ProposalTime> creteDbInstance(){
+    private static DASData<Proposal> creteDbInstance(){
         //config mode
         int mode = 0;//For static data mode
 
