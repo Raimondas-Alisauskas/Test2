@@ -4,19 +4,26 @@ import _80_utils.IdGenerator;
 
 public class Proposal {
 
-    //id
+
     private String proposalId;
     private String requestId;
     private String producerId;
     private ProposalScope proposalScope;
     private ProposalTime proposalTime;
 
-    public Proposal(String requestId, String producerId, ProposalScope proposalScope, ProposalTime proposalTime) {
-        this.proposalId = new IdGenerator().generateIdKey("Pr ");
-        this.requestId = requestId;
-        this.producerId = producerId;
-        this.proposalScope = proposalScope;
-        this.proposalTime = proposalTime;
+    //empty Proposal
+
+
+    public Proposal() {
+        this.proposalId =  new IdGenerator().generateIdKey("Pr ");
     }
+
+//    public Proposal(String requestId, String producerId, ProposalScope proposalScope, ProposalTime proposalTime) {
+//        this.proposalId = new IdGenerator().generateIdKey("Pr ");
+//        this.requestId = requestId;
+//        this.producerId = producerId;
+//        this.proposalScope = proposalScope;
+//        this.proposalTime = proposalTime;
+//    }
 
 }

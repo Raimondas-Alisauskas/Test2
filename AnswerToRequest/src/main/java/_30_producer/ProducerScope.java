@@ -11,11 +11,11 @@ public class ProducerScope {
     private long processingSpeedCM3pH;
 
     //for calculations
-    public ProducerScope(int i, DASData<ProducerScope> producersData) {
-        this.maxHeight = producersData.getData().get(i).getMaxHeight();
-        this.maxLength = producersData.getData().get(i).getMaxLength();
-        this.maxWidth = producersData.getData().get(i).getMaxWidth();
-        this.processingSpeedCM3pH = producersData.getData().get(i).getProcessingSpeedCM3pH();
+    public ProducerScope(int i, DASData<Producer> producersData) {
+        this.maxHeight = producersData.getData().get(i).getProducerScope().getMaxHeight();
+        this.maxLength = producersData.getData().get(i).getProducerScope().getMaxLength();
+        this.maxWidth = producersData.getData().get(i).getProducerScope().getMaxWidth();
+        this.processingSpeedCM3pH = producersData.getData().get(i).getProducerScope().getProcessingSpeedCM3pH();
     }
 
     //for manual data input

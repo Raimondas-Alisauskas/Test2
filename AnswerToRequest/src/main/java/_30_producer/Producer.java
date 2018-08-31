@@ -1,5 +1,6 @@
 package _30_producer;
 
+import _10_model.data.DASData;
 import _80_utils.IdGenerator;
 
 public class Producer {
@@ -13,6 +14,12 @@ public class Producer {
         this.producerId = new IdGenerator().generateIdKey("Pr ");
         this.producerScope = producerScope;
         this.producerTime = producerTime;
+    }
+
+    public Producer(int i, DASData<Producer> producersData) {
+        this.producerId = new IdGenerator().generateIdKey("Pr ");
+        this.producerScope = producersData.getData().get(i).getProducerScope();
+        this.producerTime = producersData.getData().get(i).getProducerTime();
     }
 
     //for manual data input

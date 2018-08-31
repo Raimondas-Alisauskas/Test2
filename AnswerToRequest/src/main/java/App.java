@@ -65,7 +65,7 @@ public class App {
 
 
         for (int i = 0; i < timeFitProducers.size(); i++) {
-            System.out.println("Time fit producer name :" + timeFitProducers.get(i).getProducerId());
+//            System.out.println("Time fit producer name :" + timeFitProducers.get(i).getProducerId());
         }
 
     }

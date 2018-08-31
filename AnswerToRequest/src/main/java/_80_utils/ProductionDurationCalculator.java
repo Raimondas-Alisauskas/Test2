@@ -1,19 +1,18 @@
 package _80_utils;
 
-import _30_producer.ProducerTime;
-import _30_producer.ProducerTime3D;
+import _30_producer.Producer;
 import _50_request.Request;
 
 import java.time.Duration;
 
 public class ProductionDurationCalculator {
 
-    public Duration calcProductionDuration(Request request, ProducerTime producerTime) {
+    public Duration calcProductionDuration(Request request, Producer producer) {
 
-        long processingSpeedUnitpH = producerTime.getProcessingSpeedCM3pH();
-        long volumeUnit = request.getVolumeCM3();
-        Duration preparationTime = producerTime.getProgrammingTimeH();
-        Duration deliveringTime = producerTime.getDeliveringTimeH();
+        long volumeUnit = request.getRequestScope().getVolumeCM3();
+        long processingSpeedUnitpH = producer.getProducerScope().getProcessingSpeedCM3pH();
+        Duration preparationTime = producer.getProducerTime().getProgrammingTimeH();
+        Duration deliveringTime = producer.getProducerTime().getDeliveringTimeH();
 
         Duration executionTime = calcExecutionDuration(processingSpeedUnitpH, volumeUnit);
 

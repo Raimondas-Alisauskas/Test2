@@ -16,15 +16,15 @@ public class ProducerTime {
     private Duration deliveringTimeH;
 
     //for calculations
-    public ProducerTime(int i, DASData<ProducerTime> producersData) {
+    public ProducerTime(int i, DASData<Producer> producersData) {
 //        super();
-        this.availableStart = producersData.getData().get(i).getAvailableStart();
-        this.availableFinish = producersData.getData().get(i).getAvailableFinish();
-        this.deliveringTimeH = producersData.getData().get(i).getDeliveringTimeH();
+        this.availableStart = producersData.getData().get(i).getProducerTime().getAvailableStart();
+        this.availableFinish = producersData.getData().get(i).getProducerTime().getAvailableFinish();
+        this.deliveringTimeH = producersData.getData().get(i).getProducerTime().getDeliveringTimeH();
     }
 
     //for manual data input
-    public ProducerTime(String programmingTimeH, String availableStart, String availableFinish, String processingSpeedCM3pH, String deliveringTimeH) {
+    public ProducerTime(String programmingTimeH, String availableStart, String availableFinish, String deliveringTimeH) {
         this.programmingTimeH = Duration.ofHours(Long.parseLong(programmingTimeH));
         this.availableStart = LocalDateTime.of(LocalDate.parse(availableStart), LocalTime.MIDNIGHT);
         this.availableFinish = LocalDateTime.of(LocalDate.parse(availableFinish), LocalTime.MIDNIGHT);
