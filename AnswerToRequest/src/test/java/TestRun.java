@@ -7,6 +7,8 @@ import _60_proposal.Proposal;
 import _60_proposal.ProposalTime;
 import _70_answer.Answer;
 
+import java.util.List;
+
 public class TestRun {
 
     public static void main(String[] args) {
@@ -22,7 +24,12 @@ public class TestRun {
         App app = new App(requestData, producersData, answersData);
         app.runApp();
 
-
+        List<Proposal> timeFitProposals = answersData.getData().get(0).getTimeFitProposals();
+        for (int i = 0; i < timeFitProposals.size(); i++) {
+            System.out.println("timeUtils fit proposals id :" + timeFitProposals.get(i).getProposalId());
+        }
     }
 
 }
+
+

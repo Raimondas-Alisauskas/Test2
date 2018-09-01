@@ -1,10 +1,8 @@
 package _80_utils;
 
 import _30_producer.Producer;
-import _30_producer.ProducerTime;
 import _50_request.Request;
 import _60_proposal.Proposal;
-import _60_proposal.ProposalTime;
 
 public class ProposalFiller {
 
@@ -14,7 +12,6 @@ public class ProposalFiller {
         proposal.getProposalTime().setAvailableStart(producer.getProducerTime().getAvailableStart());
         proposal.getProposalTime().setAvailableFinish(producer.getProducerTime().getAvailableFinish());
         return proposal;
-
     }
 
 }

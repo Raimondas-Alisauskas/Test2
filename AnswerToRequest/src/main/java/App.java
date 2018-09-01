@@ -6,21 +6,20 @@ import _10_model.input.RequestInput;
 import _30_producer.Producer;
 import _50_request.Request;
 import _60_proposal.Proposal;
-import _60_proposal.ProposalTime;
 import _70_answer.Answer;
-import _80_utils.ProposalTimeEvaluator;
+import _80_utils.timeUtils.ProposalTimeEvaluator;
 import _80_utils.RequestFiller;
 
 import java.util.List;
 
-public class App {
+class App {
 
-    DASData<Request> requestsData;
-    DASData<Producer> producersData;
-    DASData<Answer> answersData;
+    private DASData<Request> requestsData;
+    private DASData<Producer> producersData;
+    private DASData<Answer> answersData;
 
     //for tests
-    public App(DASData<Request> requestsData, DASData<Producer> producersData, DASData<Answer> answersData) {
+    App(DASData<Request> requestsData, DASData<Producer> producersData, DASData<Answer> answersData) {
 
         this.requestsData = requestsData;
         this.producersData = producersData;
@@ -28,51 +27,49 @@ public class App {
     }
 
     // for general run
-    public App() {
+    App() {
 
         requestsData = RequestsDBFactory.getDASInstance();
         producersData = ProducersDBFactory.getDbInstance();
         answersData = AnswersDBFactory.getDbInstance();
     }
 
-    public void runApp() {
+    void runApp() {
 
-//        Receiving Request for production: Create RequestInput
+        //Receiving Request for production: Create RequestInput
         RequestInput requestInput = new RequestInput();
 
-//        Create empty Request
+        //Create empty Request
         Request request = new Request();
 
         //fill the Request
         RequestFiller requestFiller = new RequestFiller();
         request = requestFiller.fillRequest(requestInput, request);
 
-//        Put the Request in to requestsData
+        //Put the Request in to requestsData
         requestsData.getData().add(request);
 
 
-        //Get timeFitProducers list which meets Request's time requirements
+        //Get timeFitProposals list which meets Request's time requirements
         ProposalTimeEvaluator proposalTimeEvaluator = new ProposalTimeEvaluator();
-        List<Proposal> timeFitProducers = proposalTimeEvaluator.getTimeFitProducers(request, producersData);
+        List<Proposal> timeFitProposals = proposalTimeEvaluator.getTimeFitProducers(request, producersData);
 
-//        Put timeFitProducers to Answer todo Stage1.1
-//        answersData.getData().add(answer);
+        //Put timeFitProposals to Answer
+        Answer answer = new Answer();
+        answer.setTimeFitProposals(timeFitProposals);
 
-//        Put Answer to AnswersData todo Stage1.1
-
-
-        //exeptions todo Stage1.0
-        //tests todo Stage1.0
+        //Put Answer to AnswersData
+        answersData.getData().add(answer);
 
 
-        for (int i = 0; i < timeFitProducers.size(); i++) {
-//            System.out.println("Time fit producer name :" + timeFitProducers.get(i).getProducerId());
-        }
 
     }
 }
 
-// TODO: 18.8.20 Stage2
+// TODO: Stage1
+//exeptions
+//tests
+// TODO:Stage2
 //       check Producers for max dimmensions
 //       Sort ProposalsStaticDASData acording to earlyFinish
 //        If Client is new, create new Client id, put in to ClientDatabase

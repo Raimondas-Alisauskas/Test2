@@ -31,7 +31,6 @@ public class RequestFiller {
             System.out.println("Please fill right date format in requestInput");
             throw e;
         }
-
         return request;
     }
 

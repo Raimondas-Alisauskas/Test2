@@ -10,14 +10,6 @@ public class ProducerScope {
     private long maxWidth;
     private long processingSpeedCM3pH;
 
-    //for calculations
-    public ProducerScope(int i, DASData<Producer> producersData) {
-        this.maxHeight = producersData.getData().get(i).getProducerScope().getMaxHeight();
-        this.maxLength = producersData.getData().get(i).getProducerScope().getMaxLength();
-        this.maxWidth = producersData.getData().get(i).getProducerScope().getMaxWidth();
-        this.processingSpeedCM3pH = producersData.getData().get(i).getProducerScope().getProcessingSpeedCM3pH();
-    }
-
     //for manual data input
     public ProducerScope(String maxHeight, String maxLength, String maxWidth, String processingSpeedCM3pH) {
         this.maxHeight = Long.valueOf(maxHeight);
@@ -25,6 +17,17 @@ public class ProducerScope {
         this.maxWidth = Long.valueOf(maxWidth);
         this.processingSpeedCM3pH = Long.valueOf(processingSpeedCM3pH);
     }
+
+
+/*
+    //for calculations
+    public ProducerScope(int i, DASData<Producer> producersData) {
+        this.maxHeight = producersData.getData().get(i).getProducerScope().getMaxHeight();
+        this.maxLength = producersData.getData().get(i).getProducerScope().getMaxLength();
+        this.maxWidth = producersData.getData().get(i).getProducerScope().getMaxWidth();
+        this.processingSpeedCM3pH = producersData.getData().get(i).getProducerScope().getProcessingSpeedCM3pH();
+    }
+*/
 
     public long getMaxHeight() {
         return maxHeight;

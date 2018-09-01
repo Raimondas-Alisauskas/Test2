@@ -12,16 +12,7 @@ public class ProducerTime {
     private Duration programmingTimeH;
     private LocalDateTime availableStart;
     private LocalDateTime availableFinish;
-
     private Duration deliveringTimeH;
-
-    //for calculations
-    public ProducerTime(int i, DASData<Producer> producersData) {
-//        super();
-        this.availableStart = producersData.getData().get(i).getProducerTime().getAvailableStart();
-        this.availableFinish = producersData.getData().get(i).getProducerTime().getAvailableFinish();
-        this.deliveringTimeH = producersData.getData().get(i).getProducerTime().getDeliveringTimeH();
-    }
 
     //for manual data input
     public ProducerTime(String programmingTimeH, String availableStart, String availableFinish, String deliveringTimeH) {
@@ -29,6 +20,16 @@ public class ProducerTime {
         this.availableStart = LocalDateTime.of(LocalDate.parse(availableStart), LocalTime.MIDNIGHT);
         this.availableFinish = LocalDateTime.of(LocalDate.parse(availableFinish), LocalTime.MIDNIGHT);
         this.deliveringTimeH = Duration.ofHours(Long.parseLong(deliveringTimeH));
+
+    /*
+        //for calculations
+        public ProducerTime(int i, DASData<Producer> producersData) {
+            this.programmingTimeH = producersData.getData().get(i).getProducerTime().getProgrammingTimeH();
+            this.availableStart = producersData.getData().get(i).getProducerTime().getAvailableStart();
+            this.availableFinish = producersData.getData().get(i).getProducerTime().getAvailableFinish();
+            this.deliveringTimeH = producersData.getData().get(i).getProducerTime().getDeliveringTimeH();
+        }
+    */
     }
 
 
@@ -65,16 +66,4 @@ public class ProducerTime {
     }
 }
 
-// TODO: 18.8.18 Stage2
-//    // id
-//    private static int producerId; ??
 
-//    //scope
-//    private String maxDimensionsMM;
-
-//    //price
-//    private double materialCost; //
-//    private double programmingRate; //
-//    private double machineUsageRate; //
-//    private double handlingCost; //
-//    private double deliveringCost;  //

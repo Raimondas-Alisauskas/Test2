@@ -9,25 +9,27 @@ public class Producer {
     private ProducerScope producerScope;
     private ProducerTime producerTime;
 
-    //for calculations
-    public Producer( ProducerScope producerScope, ProducerTime producerTime) {
-        this.producerId = new IdGenerator().generateIdKey("Pr ");
-        this.producerScope = producerScope;
-        this.producerTime = producerTime;
-    }
 
+    //for calculations
     public Producer(int i, DASData<Producer> producersData) {
-        this.producerId = new IdGenerator().generateIdKey("Pr ");
+        this.producerId = new IdGenerator().generateIdKey("Prd ");
         this.producerScope = producersData.getData().get(i).getProducerScope();
         this.producerTime = producersData.getData().get(i).getProducerTime();
     }
 
     //for manual data input
-    public Producer( String producerId, ProducerScope producerScope, ProducerTime producerTime) {
-        this.producerId = producerId;
+    public Producer( ProducerScope producerScope, ProducerTime producerTime) {
+        this.producerId = new IdGenerator().generateIdKey("Prd ");
         this.producerScope = producerScope;
         this.producerTime = producerTime;
     }
+
+
+//    public Producer( String producerId, ProducerScope producerScope, ProducerTime producerTime) {
+//        this.producerId = producerId;
+//        this.producerScope = producerScope;
+//        this.producerTime = producerTime;
+//    }
 
     public String getProducerId() {
         return producerId;
@@ -53,3 +55,11 @@ public class Producer {
         this.producerTime = producerTime;
     }
 }
+
+// TODO: Stage2
+//    //price
+//    private double materialCost; //
+//    private double programmingRate; //
+//    private double machineUsageRate; //
+//    private double handlingCost; //
+//    private double deliveringCost;  //

@@ -1,7 +1,6 @@
-package _80_utils;
+package _80_utils.timeUtils;
 
 import _30_producer.Producer;
-import _30_producer.ProducerTime;
 
 import java.time.Duration;
 import java.time.LocalDateTime;

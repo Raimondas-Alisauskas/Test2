@@ -12,7 +12,7 @@ public class Request {
 
     //empty Request
     public Request() {
-        this.requestId = new IdGenerator().generateIdKey("Rk ");
+        this.requestId = new IdGenerator().generateIdKey("Rkw ");
     }
 
 

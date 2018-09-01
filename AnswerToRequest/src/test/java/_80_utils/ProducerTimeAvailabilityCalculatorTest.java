@@ -1,10 +1,7 @@
 package java._80_utils;
 
-import _30_producer.ProducerTime;
-import _80_utils.ProducerAvailabilityCalculator;
 //import org.junit.jupiter.api.Test;
 
-import java.time.Duration;
 
 //import static org.junit.jupiter.api.Assertions.*;
 

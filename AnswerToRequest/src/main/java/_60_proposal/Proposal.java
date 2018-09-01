@@ -13,7 +13,7 @@ public class Proposal {
 
     //empty Proposal
     public Proposal() {
-        this.proposalId =  new IdGenerator().generateIdKey("Pr ");
+        this.proposalId =  new IdGenerator().generateIdKey("Prp ");
         this.proposalScope = new ProposalScope();
         this.proposalTime = new ProposalTime();
 
