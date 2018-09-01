@@ -3,6 +3,8 @@ package _30_producer;
 import _10_model.data.DASData;
 import _80_utils.IdGenerator;
 
+import java.util.List;
+
 public class Producer {
 
     private String producerId ;

@@ -19,7 +19,7 @@ public class ProposalTimeEvaluator {
     private boolean producerIsAvailable;
     private Producer producer;
     private Request request;
-    private ArrayList timeFitProposalsList;
+    private List<Proposal> timeFitProposalsList;
     private ProposalFiller proposalFiller;
     private LocalDateTime earlyFinishDate;
     private boolean productionIsOnTime;
@@ -29,14 +29,14 @@ public class ProposalTimeEvaluator {
         this.request = request;
         productionDurationCalculator = new ProductionDurationCalculator();
         producerAvailabilityCalculator = new ProducerAvailabilityCalculator();
-        timeFitProposalsList = new ArrayList();
+        timeFitProposalsList = new ArrayList<>();
         proposalFiller = new ProposalFiller();
 
         for (int i = 0; i < producersData.getData().size(); i++) {
 
             producer = new Producer(i, producersData);
 
-            checkProducersAvailability();
+            checkProducerTimeAvailability();
 
             if (producerIsAvailable) {
                 checkProductionIsOnTime();
@@ -50,7 +50,7 @@ public class ProposalTimeEvaluator {
      }
 
 
-    private void checkProducersAvailability() {
+    private void checkProducerTimeAvailability() {
         // calculate productionDuration
         productionDuration = productionDurationCalculator.calcProductionDuration(request, producer);
 
