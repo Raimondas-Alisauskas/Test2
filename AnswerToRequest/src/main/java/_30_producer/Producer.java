@@ -19,6 +19,12 @@ public class Producer {
         this.producerTime = producersData.getData().get(i).getProducerTime();
     }
 
+    public Producer(int i, List<Producer> producers) {
+        this.producerId = new IdGenerator().generateIdKey("Prd ");
+        this.producerScope = producers.get(i).getProducerScope();
+        this.producerTime = producers.get(i).getProducerTime();
+    }
+
     //for manual data input
     public Producer( ProducerScope producerScope, ProducerTime producerTime) {
         this.producerId = new IdGenerator().generateIdKey("Prd ");

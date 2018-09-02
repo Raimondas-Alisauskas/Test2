@@ -1,20 +1,18 @@
 package _30_producer;
 
-import _10_model.data.DASData;
-
 public class ProducerScope {
 
 
-    private long maxHeight;
-    private long maxLength;
-    private long maxWidth;
+    private long maxHeightMM;
+    private long maxLengthMM;
+    private long maxWidthMM;
     private long processingSpeedCM3pH;
 
     //for manual data input
-    public ProducerScope(String maxHeight, String maxLength, String maxWidth, String processingSpeedCM3pH) {
-        this.maxHeight = Long.valueOf(maxHeight);
-        this.maxLength = Long.valueOf(maxLength);
-        this.maxWidth = Long.valueOf(maxWidth);
+    public ProducerScope(String maxHeightMM, String maxLengthMM, String maxWidthMM, String processingSpeedCM3pH) {
+        this.maxHeightMM = Long.valueOf(maxHeightMM);
+        this.maxLengthMM = Long.valueOf(maxLengthMM);
+        this.maxWidthMM = Long.valueOf(maxWidthMM);
         this.processingSpeedCM3pH = Long.valueOf(processingSpeedCM3pH);
     }
 
@@ -22,35 +20,35 @@ public class ProducerScope {
 /*
     //for calculations
     public ProducerScope(int i, DASData<Producer> producersData) {
-        this.maxHeight = producersData.getData().get(i).getProducerScope().getMaxHeight();
-        this.maxLength = producersData.getData().get(i).getProducerScope().getMaxLength();
-        this.maxWidth = producersData.getData().get(i).getProducerScope().getMaxWidth();
+        this.maxHeightMM = producersData.getData().get(i).getProducerScope().getMaxHeightMM();
+        this.maxLengthMM = producersData.getData().get(i).getProducerScope().getMaxLengthMM();
+        this.maxWidthMM = producersData.getData().get(i).getProducerScope().getMaxWidthMM();
         this.processingSpeedCM3pH = producersData.getData().get(i).getProducerScope().getProcessingSpeedCM3pH();
     }
 */
 
-    public long getMaxHeight() {
-        return maxHeight;
+    public long getMaxHeightMM() {
+        return maxHeightMM;
     }
 
-    public void setMaxHeight(long maxHeight) {
-        this.maxHeight = maxHeight;
+    public void setMaxHeightMM(long maxHeightMM) {
+        this.maxHeightMM = maxHeightMM;
     }
 
-    public long getMaxLength() {
-        return maxLength;
+    public long getMaxLengthMM() {
+        return maxLengthMM;
     }
 
-    public void setMaxLength(long maxLength) {
-        this.maxLength = maxLength;
+    public void setMaxLengthMM(long maxLengthMM) {
+        this.maxLengthMM = maxLengthMM;
     }
 
-    public long getMaxWidth() {
-        return maxWidth;
+    public long getMaxWidthMM() {
+        return maxWidthMM;
     }
 
-    public void setMaxWidth(long maxWidth) {
-        this.maxWidth = maxWidth;
+    public void setMaxWidthMM(long maxWidthMM) {
+        this.maxWidthMM = maxWidthMM;
     }
 
     public long getProcessingSpeedCM3pH() {

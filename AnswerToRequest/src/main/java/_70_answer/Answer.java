@@ -1,6 +1,5 @@
 package _70_answer;
 
-import _30_producer.Producer;
 import _60_proposal.Proposal;
 import _80_utils.IdGenerator;
 
@@ -9,13 +8,13 @@ import java.util.List;
 public class Answer {
 
     private String answerId = new IdGenerator().generateIdKey("Ans ");
-    private List<Proposal> timeFitProposals;
+    private List<Proposal> ProposalsInAnswer;
 
-    public List<Proposal> getTimeFitProposals() {
-        return timeFitProposals;
+    public List<Proposal> getProposalsInAnswer() {
+        return ProposalsInAnswer;
     }
 
-    public void setTimeFitProposals(List<Proposal> timeFitProposals) {
-        this.timeFitProposals = timeFitProposals;
+    public void setProposalsInAnswer(List<Proposal> proposalsInAnswer) {
+        this.ProposalsInAnswer = proposalsInAnswer;
     }
 }

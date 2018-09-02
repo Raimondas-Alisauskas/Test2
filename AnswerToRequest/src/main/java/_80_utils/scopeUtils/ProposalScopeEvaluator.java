@@ -4,38 +4,57 @@ import _10_model.data.DASData;
 import _30_producer.Producer;
 import _50_request.Request;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class ProposalScopeEvaluator {
 
-
+    private Request request;
     private Producer producer;
-    private long maxFootprintDimensionMM;
-    private long maxHeightMM;
+    private long requestMaxHeightMM;
+    private long requestMaxLengthMM;
+    private long requestMaxWidthMM;
+    private long producerMaxHeightMM;
+    private long producerMaxLengthMM;
+    private long producerMaxWidthMM;
+    private boolean producerFitToScope;
+    private List<Producer> fitToScopeProducersList;
 
-    private long maxHeight;
-    private long maxLength;
-    private long maxWidth;
-    private boolean producerScopeIsAvailable;
 
+    public List<Producer> getScopeFitProducers(Request request, DASData<Producer> producersList) {
+        this.request = request;
+        fitToScopeProducersList = new ArrayList<>();
 
-    public DASData<Producer> getScopeFitProposals(Request request, DASData<Producer> producersData) {
+        for (int i = 0; i < producersList.getData().size(); i++) {
+            producer = producersList.getData().get(i);
 
-        for (int i = 0; i < producersData.getData().size(); i++) {
-            producer = new Producer(i, producersData);
+            checkIsProducerFitToScope();
 
-            checkProducerScopeAvailability();
-
-            if (producerScopeIsAvailable) {
-
+            if (producerFitToScope) {
+                putProducerToFitToScopeProducersList();
             }
-
         }
-
-        return null;
+        return fitToScopeProducersList;
     }
 
-    private void checkProducerScopeAvailability() {
-        producerScopeIsAvailable =;
 
+    private void checkIsProducerFitToScope() {
+        requestMaxHeightMM = request.getRequestScope().getMaxHeightMM();
+        requestMaxLengthMM = request.getRequestScope().getMaxLengthMM();
+        requestMaxWidthMM = request.getRequestScope().getMaxWidthMM();
+        producerMaxHeightMM = producer.getProducerScope().getMaxHeightMM();
+        producerMaxLengthMM = producer.getProducerScope().getMaxLengthMM();
+        producerMaxWidthMM = producer.getProducerScope().getMaxWidthMM();
+
+        producerFitToScope =
+                (requestMaxHeightMM <= producerMaxHeightMM)
+                        && (requestMaxLengthMM <= producerMaxLengthMM)
+                        && (requestMaxWidthMM <= producerMaxWidthMM);
+    }
+
+
+    private void putProducerToFitToScopeProducersList() {
+        fitToScopeProducersList.add(producer);
     }
 }

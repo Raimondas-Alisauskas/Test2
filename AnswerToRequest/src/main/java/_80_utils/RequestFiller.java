@@ -14,14 +14,14 @@ public class RequestFiller {
 
     public Request fillRequest(RequestInput requestInput, Request request) {
         try {
-            request.setClientId(requestInput.getClientName());
-
-            long maxFootprintDimensionMM = Long.valueOf(requestInput.getMaxFootprintDimensionMM());
+            request.setClientId(requestInput.getClientId());
             long maxHeightMM = Long.valueOf(requestInput.getMaxHeightMM());
+            long maxLengthMM = Long.valueOf(requestInput.getMaxLengthMM());
+            long maxWidthMM = Long.valueOf(requestInput.getMaxWidthMM());
             long volumeCM3 = Long.valueOf(requestInput.getVolumeCM3());
             LocalDateTime deadline = (LocalDateTime.of(LocalDate.parse(requestInput.getDeadline()), LocalTime.MIDNIGHT));
 
-            request.setRequestScope(new RequestScope(maxFootprintDimensionMM, maxHeightMM, volumeCM3));
+            request.setRequestScope(new RequestScope(maxHeightMM, maxLengthMM, maxWidthMM, volumeCM3));
             request.setRequestTime(new RequestTime(deadline));
 
         } catch (NumberFormatException e) {

@@ -1,6 +1,5 @@
 package _80_utils.timeUtils;
 
-import _10_model.data.DASData;
 import _30_producer.Producer;
 import _60_proposal.Proposal;
 import _50_request.Request;
@@ -25,16 +24,16 @@ public class ProposalTimeEvaluator {
     private boolean productionIsOnTime;
 
 
-    public List<Proposal> getTimeFitProducers(Request request, DASData<Producer> producersData) {
+    public List<Proposal> getTimeFitProposalsList(Request request, List<Producer> producersList) {
         this.request = request;
         productionDurationCalculator = new ProductionDurationCalculator();
         producerAvailabilityCalculator = new ProducerAvailabilityCalculator();
         timeFitProposalsList = new ArrayList<>();
         proposalFiller = new ProposalFiller();
 
-        for (int i = 0; i < producersData.getData().size(); i++) {
+        for (int i = 0; i < producersList.size(); i++) {
 
-            producer = new Producer(i, producersData);
+            producer = producersList.get(i);
 
             checkProducerTimeAvailability();
 

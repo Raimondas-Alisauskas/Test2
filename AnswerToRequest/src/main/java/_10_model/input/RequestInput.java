@@ -3,37 +3,32 @@ package _10_model.input;
 public class RequestInput {
 
     //id
-    private String clientName;
-    private String maxFootprintDimensionMM;
+    private String clientId;
     private String maxHeightMM;
+    private String maxLengthMM;
+    private String maxWidthMM;
     private String volumeCM3;
     //time
     private String deadline;
 
 
     public RequestInput() {
-        clientName = "ClName";
-        maxFootprintDimensionMM = "100";
-        maxHeightMM = "200";
+        clientId = "ClName";
+        maxHeightMM = "100";
+        maxLengthMM = "100";
+        maxWidthMM = "50";
         volumeCM3 = "100";
         deadline = "2018-09-15";
     }
 
     //getset
-    public String getClientName() {
-        return clientName;
+
+    public String getClientId() {
+        return clientId;
     }
 
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
-    }
-
-    public String getMaxFootprintDimensionMM() {
-        return maxFootprintDimensionMM;
-    }
-
-    public void setMaxFootprintDimensionMM(String maxFootprintDimensionMM) {
-        this.maxFootprintDimensionMM = maxFootprintDimensionMM;
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 
     public String getMaxHeightMM() {
@@ -42,6 +37,22 @@ public class RequestInput {
 
     public void setMaxHeightMM(String maxHeightMM) {
         this.maxHeightMM = maxHeightMM;
+    }
+
+    public String getMaxLengthMM() {
+        return maxLengthMM;
+    }
+
+    public void setMaxLengthMM(String maxLengthMM) {
+        this.maxLengthMM = maxLengthMM;
+    }
+
+    public String getMaxWidthMM() {
+        return maxWidthMM;
+    }
+
+    public void setMaxWidthMM(String maxWidthMM) {
+        this.maxWidthMM = maxWidthMM;
     }
 
     public String getVolumeCM3() {

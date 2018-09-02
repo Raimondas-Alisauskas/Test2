@@ -5,7 +5,6 @@ import _10_model.data.RequestsDBFactory;
 import _10_model.input.RequestInput;
 import _30_producer.Producer;
 import _50_request.Request;
-import _50_request.RequestScope;
 import _60_proposal.Proposal;
 import _70_answer.Answer;
 import _80_utils.scopeUtils.ProposalScopeEvaluator;
@@ -53,20 +52,19 @@ class App {
 
         //Get scopeFitProposals
         ProposalScopeEvaluator proposalScopeEvaluator = new ProposalScopeEvaluator();
-        DASData<Producer> scopeFitProducers = proposalScopeEvaluator.getScopeFitProposals (request, producersData);
+        List<Producer> scopeFitProducers = proposalScopeEvaluator.getScopeFitProducers(request, producersData);
 
 
         //Get timeFitProposals list which meets Request's time requirements
         ProposalTimeEvaluator proposalTimeEvaluator = new ProposalTimeEvaluator();
-        List<Proposal> timeFitProposals = proposalTimeEvaluator.getTimeFitProducers(request, scopeFitProducers);
+        List<Proposal> timeFitProposals = proposalTimeEvaluator.getTimeFitProposalsList(request, scopeFitProducers);
 
         //Put timeFitProposals to Answer
         Answer answer = new Answer();
-        answer.setTimeFitProposals(timeFitProposals);
+        answer.setProposalsInAnswer(timeFitProposals);
 
         //Put Answer to AnswersData
         answersData.getData().add(answer);
-
 
 
     }
