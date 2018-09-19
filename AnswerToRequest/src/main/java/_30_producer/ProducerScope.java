@@ -1,18 +1,20 @@
 package _30_producer;
 
+import _10_model.data.DASData;
+
 public class ProducerScope {
 
 
-    private long maxHeightMM;
-    private long maxLengthMM;
-    private long maxWidthMM;
+    private long maxHeight;
+    private long maxLength;
+    private long maxWidth;
     private long processingSpeedCM3pH;
 
     //for manual data input
-    public ProducerScope(String maxHeightMM, String maxLengthMM, String maxWidthMM, String processingSpeedCM3pH) {
-        this.maxHeightMM = Long.valueOf(maxHeightMM);
-        this.maxLengthMM = Long.valueOf(maxLengthMM);
-        this.maxWidthMM = Long.valueOf(maxWidthMM);
+    public ProducerScope(String maxHeight, String maxLength, String maxWidth, String processingSpeedCM3pH) {
+        this.maxHeight = Long.valueOf(maxHeight);
+        this.maxLength = Long.valueOf(maxLength);
+        this.maxWidth = Long.valueOf(maxWidth);
         this.processingSpeedCM3pH = Long.valueOf(processingSpeedCM3pH);
     }
 
@@ -20,35 +22,35 @@ public class ProducerScope {
 /*
     //for calculations
     public ProducerScope(int i, DASData<Producer> producersData) {
-        this.maxHeightMM = producersData.getData().get(i).getProducerScope().getMaxHeightMM();
-        this.maxLengthMM = producersData.getData().get(i).getProducerScope().getMaxLengthMM();
-        this.maxWidthMM = producersData.getData().get(i).getProducerScope().getMaxWidthMM();
+        this.maxHeight = producersData.getData().get(i).getProducerScope().getMaxHeight();
+        this.maxLength = producersData.getData().get(i).getProducerScope().getMaxLength();
+        this.maxWidth = producersData.getData().get(i).getProducerScope().getMaxWidth();
         this.processingSpeedCM3pH = producersData.getData().get(i).getProducerScope().getProcessingSpeedCM3pH();
     }
 */
 
-    public long getMaxHeightMM() {
-        return maxHeightMM;
+    public long getMaxHeight() {
+        return maxHeight;
     }
 
-    public void setMaxHeightMM(long maxHeightMM) {
-        this.maxHeightMM = maxHeightMM;
+    public void setMaxHeight(long maxHeight) {
+        this.maxHeight = maxHeight;
     }
 
-    public long getMaxLengthMM() {
-        return maxLengthMM;
+    public long getMaxLength() {
+        return maxLength;
     }
 
-    public void setMaxLengthMM(long maxLengthMM) {
-        this.maxLengthMM = maxLengthMM;
+    public void setMaxLength(long maxLength) {
+        this.maxLength = maxLength;
     }
 
-    public long getMaxWidthMM() {
-        return maxWidthMM;
+    public long getMaxWidth() {
+        return maxWidth;
     }
 
-    public void setMaxWidthMM(long maxWidthMM) {
-        this.maxWidthMM = maxWidthMM;
+    public void setMaxWidth(long maxWidth) {
+        this.maxWidth = maxWidth;
     }
 
     public long getProcessingSpeedCM3pH() {

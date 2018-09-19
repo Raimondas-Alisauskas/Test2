@@ -2,26 +2,30 @@ package _50_request;
 
 public class RequestScope {
 
+    private long maxFootprintDimensionMM;
     private long maxHeightMM;
-    private long maxLengthMM;
-    private long maxWidthMM;
-
     private long volumeCM3;
 
     //for calculations
-    public RequestScope(long maxHeightMM, long maxLengthMM, long maxWidthMM, long volumeCM3) {
+    public RequestScope(long maxFootprintDimensionMM, long maxHeightMM, long volumeCM3) {
+        this.maxFootprintDimensionMM = maxFootprintDimensionMM;
         this.maxHeightMM = maxHeightMM;
-        this.maxLengthMM = maxLengthMM;
-        this.maxWidthMM = maxWidthMM;
         this.volumeCM3 = volumeCM3;
     }
 
     //for manual input
-    public RequestScope( String maxHeightMM, String maxLengthMM, String maxWidthMM, String volumeCM3) {
+    public RequestScope(String maxFootprintDimensionMM, String maxHeightMM, String volumeCM3) {
+        this.maxFootprintDimensionMM = Long.valueOf(maxFootprintDimensionMM);
         this.maxHeightMM = Long.valueOf(maxHeightMM);
-        this.maxLengthMM = Long.valueOf(maxLengthMM);
-        this.maxWidthMM = Long.valueOf(maxWidthMM);
         this.volumeCM3 = Long.valueOf(volumeCM3);
+    }
+
+    public long getMaxFootprintDimensionMM() {
+        return maxFootprintDimensionMM;
+    }
+
+    public void setMaxFootprintDimensionMM(long maxFootprintDimensionMM) {
+        this.maxFootprintDimensionMM = maxFootprintDimensionMM;
     }
 
     public long getMaxHeightMM() {
@@ -30,22 +34,6 @@ public class RequestScope {
 
     public void setMaxHeightMM(long maxHeightMM) {
         this.maxHeightMM = maxHeightMM;
-    }
-
-    public long getMaxLengthMM() {
-        return maxLengthMM;
-    }
-
-    public void setMaxLengthMM(long maxLengthMM) {
-        this.maxLengthMM = maxLengthMM;
-    }
-
-    public long getMaxWidthMM() {
-        return maxWidthMM;
-    }
-
-    public void setMaxWidthMM(long maxWidthMM) {
-        this.maxWidthMM = maxWidthMM;
     }
 
     public long getVolumeCM3() {

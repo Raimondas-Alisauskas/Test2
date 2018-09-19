@@ -19,7 +19,6 @@ public class Proposal {
 
     }
 
-
 //    public Proposal(String requestId, String producerId, ProposalScope proposalScope, ProposalTime proposalTime) {
 //        this.proposalId = new IdGenerator().generateIdKey("Pr ");
 //        this.requestId = requestId;
